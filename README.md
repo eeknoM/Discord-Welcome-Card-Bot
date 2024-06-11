@@ -6,6 +6,7 @@ This is a Discord bot that i made to create a custom welcome card for whenever a
 also you need to seperate your gif into frames use this website https://ezgif.com/split 
 
 also please crop the gif to 1000 x 430 otherwise bad thing.
+
 PLEASE NOTE THAT ONLY .gif FILES WORK IN THE IMAGE FRAMES FOLDER
 
 ## Features
