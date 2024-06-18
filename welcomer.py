@@ -8,11 +8,13 @@ import os
 import logging
 import json
 
+# load JSON
 with open('config.json') as config_file:
     config = json.load(config_file)
 
 logging.basicConfig(level=logging.INFO)
 
+# setup vars
 resize_size = (124, 124)
 border_size = 3
 frame_duration = 53
@@ -23,6 +25,8 @@ font_path = os.path.join(os.path.dirname(__file__), config['welcome_font'])
 font_size = 40
 role_id = config['role_id']
 
+
+# get the users avatar
 def fetch_and_prepare_avatar(url, resize_size):
     try:
         response = requests.get(url)
@@ -34,6 +38,7 @@ def fetch_and_prepare_avatar(url, resize_size):
         logging.error(f"Error fetching avatar: {e}")
         return None
 
+# create a circular mask for the avatar
 def create_circular_image(image, border_size):
     mask = Image.new('L', image.size, 0)
     draw = ImageDraw.Draw(mask)
@@ -53,6 +58,7 @@ def create_circular_image(image, border_size):
     
     return bordered_img
 
+# draw the welcome text over the image frames
 def draw_text_on_image(image, text, font_path, font_size, position):
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype(font_path, font_size)
@@ -62,6 +68,7 @@ def draw_text_on_image(image, text, font_path, font_size, position):
     text_position = (position[0] - text_width // 2, position[1] - text_height // 2)
     draw.text(text_position, text, font=font, fill=(255, 255, 255, 255))
 
+# prepare the gif
 def process_gif_frames(dir_path, target_width, target_height, bordered_img, frame_duration, output_gif, welcome_text):
     images = []
     for item in glob.glob(os.path.join(dir_path, "ImageFrames", "*.gif")):
