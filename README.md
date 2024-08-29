@@ -1,6 +1,6 @@
 # Discord Welcomer Bot
 
-A Discord bot that welcomes new members to your server with a custom GIF and assigns them a role. The bot uses the `discord.py` library and supports dynamic configuration via a JSON file.
+A module based Discord bot that welcomes new members to your server with a custom GIF and assigns them a role. The bot uses the `discord.py` library and supports dynamic configuration via a JSON file.
 
 ## Features
 
