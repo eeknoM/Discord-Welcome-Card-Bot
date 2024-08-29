@@ -1,5 +1,6 @@
 {
     "bot_token": "BOT_TOKEN",
+    "welcomer_module":true,
     "fallback_channel_id": Welcome_Channel_ID,
     "role_id": Role_ID,
     "welcome_font": "Font/FreeSerifBoldItalic.ttf"
